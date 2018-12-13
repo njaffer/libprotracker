@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  pswd: MyString
+  member_since: 2018-12-11 14:23:06
+
+two:
+  email: MyString
+  pswd: MyString
+  member_since: 2018-12-11 14:23:06

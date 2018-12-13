@@ -1,0 +1,158 @@
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" shrink-to-fit="no">
+<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+</head>
+<body>
+	
+<div class="container">
+    
+    <h3 style="margin-top:70px;">Fiscal Year '19, Cycle 2 </h5>
+   <div class="row">
+                <div class="col-lg-3 col-md-6">
+                   
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-address-card fa-3x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">67</div>
+                                    <div>Active</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="Active.html.erb">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+               
+                </div>
+                <div class="col-lg-3 col-md-6">
+               
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-hourglass-half fa-3x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">35</div>
+                                    <div>In Progress</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                   
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-times-rectangle fa-3x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">0</div>
+                                    <div>Waiting</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+               
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-check-square fa-3x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                  
+                                    <div class="huge">14</div>
+                                    <div>Done</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                
+                </div>
+                <div class="row">
+                    <div class="col-lg-6"> 
+                    <h4>Recent Updates:</h4>
+                    </div>
+                    <div class="col-lg-6"> 
+                    <h4>End of the Cycle Review:</h4>
+                    <canvas id="myChart" width="200" height="200"></canvas>
+                    </div>
+                    
+                </div>
+            </div>
+</div>
+<script>
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Total", "Done", "Stopped", "Not Started", "Continue", "Waiting"],
+        datasets: [{
+            label: 'Work Schedule FY19:2',
+            data: [67, 14, 7, 11, 35, 0],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+ 
+</body>

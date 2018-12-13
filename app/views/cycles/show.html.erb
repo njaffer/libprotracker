@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cycle name:</strong>
+  <%= @cycle.cycle_name %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @cycle.duration %>
+</p>
+
+<%= link_to 'Edit', edit_cycle_path(@cycle) %> |
+<%= link_to 'Back', cycles_path %>
