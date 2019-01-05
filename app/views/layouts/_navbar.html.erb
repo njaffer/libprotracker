@@ -1,4 +1,4 @@
-<div class="page-wrapper">
+
 <header>
 <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
   <div class="container">
@@ -15,37 +15,59 @@
       <ul class="nav navbar-nav foo" id="menu">
         <p class="navbar-text"></p>
        
-        <li><a href="/about-us">Add Work</a></li>
-        <li>
-          <a href="/contact">
-            Archive Work
-          </a>
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Cards <b class="caret"></b></a>
+           <ul class="dropdown-menu">
+            <li><a href="/cards/add">Add</a></li>
+            <li class="divider"></li>
+            <li><a href="/cards/import">Import</a></li>
+            <li class="divider"></li>
+            <li><a href="/cards/update">Update</a></li>   
+            <li class="divider"></li>
+            <li><a href="/cards/browse">Browse</a></li>        
+          </ul>
         </li>
+      
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Update <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Users <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="/admin">Work Details</a></li>
+            <li><a href="/admin">Add</a></li>
             <li class="divider"></li>
-            <li><a href="/one">Complexity Rating</a></li>
+            <li><a href="/one">Update</a></li>          
+          </ul>
+        </li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/admin">Complexity</a></li>
             <li class="divider"></li>
-            <li><a href="/two">Impact Rating</a></li>
-            <li class="divider"></li>
-            <li><a href="/three">Status</a></li>
-            <li class="divider"></li>
-            <li><a href="/admin">Comments</a></li>
-            
+            <li><a href="/one">Impact</a></li> 
+             <li class="divider"></li>
+            <li><a href="/one">Mid-Cycle Review</a></li>  
+             <li class="divider"></li>
+            <li><a href="/one">End-Cycle Review</a></li>         
           </ul>
         </li>
          <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cycle <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="">FY19:1</a></li>
+            <li><a href="">Active Cycle</a></li>
             <li class="divider"></li>
-            <li><a href="">FY19:2</a></li>
+            <li><a href="">New Cycle</a></li>            
+          </ul>
+        </li>
+         <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="">Cards</a></li>
             <li class="divider"></li>
-            <li><a href="">Add New Cycle</a></li>
-           
-            
+            <li><a href="">Complexity</a></li> 
+            <li class="divider"></li>
+            <li><a href="">Impact</a></li>    
+            <li class="divider"></li>
+            <li><a href="">Mid-Cycle Review</a></li> 
+            <li class="divider"></li>
+            <li><a href="">End-Cycle Review</a></li>    
+
           </ul>
         </li>
       </ul>
@@ -57,4 +79,3 @@
   </div>
 </nav>
 </header>
-</div>

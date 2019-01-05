@@ -1,0 +1,22 @@
+<div class="container">
+    
+  <h3 style="margin-top:70px;">Active Cards</h3>
+
+  <% Card.all.each do |c| %>
+    <div class="card">
+      <div class="card-header">
+       <%= c.request_type %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= c.title %> </h5>
+        <p class="card-text"><%=c.short_description %></p>
+     </div>
+     <div class="card-footer text-muted">
+       <%= c.requester_name %> 
+     </div>
+   </div>
+    
+ <% end %>
+   
+
+</div>    
