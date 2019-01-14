@@ -1,6 +1,8 @@
 class CardsController < ApplicationController
 	protect_from_forgery with: :null_session
 
+def public_board
+end
 def import_cards
   uploaded_csv = params[:file]
   csv_text = File.read(uploaded_csv.path)
@@ -54,7 +56,7 @@ def import_cards
       row_hash[:short_description] = row_hash.delete "Q17"
     end	
     
-    byebug
+    
     row_hash[:benefits] = row_hash.delete "Q13"
     row_hash[:goal_alignment] = row_hash.delete "Q8"
     row_hash[:at_stake] = row_hash.delete "Q9"
@@ -65,8 +67,18 @@ def import_cards
     row_hash[:card_since] = row_hash.delete "RecordedDate"
     row_hash.delete_if { |k, v| v.nil? }
 
-    byebug
-    Card.create!(row_hash)    
+    row_hash.merge!(start_cycle: params[:cycle])
+    
+  
+    c = Card.new (row_hash)
+    c.save!
+    id = c.id
+    complexity_hash = Hash["card_id" => id, "status" => "Not Recorded"]
+    Complexity.create!(complexity_hash) 
+    Impact.create!(complexity_hash) 
+    comment_hash = Hash["card_id" => id, "comment_txt" => "New card created", "uemail" => "njaffer@umich.edu"] 
+    Comment.create!(comment_hash)
+    
   end	
 end
 end	

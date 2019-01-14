@@ -19,8 +19,11 @@ class CreateCards < ActiveRecord::Migration[5.2]
       t.string :priority
       t.string :sponsor
       t.string :more_info
+      t.string :start_cycle
+      t.string :end_cycle
       t.datetime :card_since
 
+      t.datetime :recorded_on ,  default: -> { 'CURRENT_TIMESTAMP' }
       t.timestamps
     end
   end

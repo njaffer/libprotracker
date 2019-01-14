@@ -3,12 +3,22 @@
     <h3 style="margin-top:70px;">Import File</h3>
 
 <%= form_tag("import_cards", :enctype =>"multipart/form-data") do %>
+   <div class="row">
    <div class="field">
      <%= label_tag :file %>
-     <%= file_field_tag :file %>
+     <%= file_field_tag :file,  :required => true  %>
    </div>
+</div>
+<div class="row">
+    <div class="field">
+     <%= label_tag :cycle %>
+     <%= text_field_tag :cycle ,nil, :required => true   %>
+   </div>
+</div>
+   <div class="row">
    <div class="actions">
       <%= submit_tag 'Next' %>
    </div>
+</div>
 <% end %>
 </div>

@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_02_174205) do
+ActiveRecord::Schema.define(version: 2019_01_07_155155) do
 
   create_table "cards", force: :cascade do |t|
     t.string "request_type"
+    t.string "i_or_p"
     t.string "requester_name"
     t.string "requester_email"
     t.string "requester_div"
@@ -29,15 +30,32 @@ ActiveRecord::Schema.define(version: 2019_01_02_174205) do
     t.string "non_tech"
     t.string "priority"
     t.string "sponsor"
+    t.string "more_info"
+    t.string "start_cycle"
+    t.string "end_cycle"
     t.datetime "card_since"
+    t.datetime "recorded_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "card_id"
+    t.string "uemail"
+    t.string "comment_txt"
+    t.datetime "recorded_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "complexities", force: :cascade do |t|
+    t.integer "card_id"
+    t.string "status"
     t.string "comments"
+    t.datetime "timestamp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_complexities_on_card_id"
   end
 
   create_table "cycles", force: :cascade do |t|
@@ -48,27 +66,22 @@ ActiveRecord::Schema.define(version: 2019_01_02_174205) do
   end
 
   create_table "impacts", force: :cascade do |t|
+    t.integer "card_id"
+    t.string "status"
     t.string "comments"
+    t.datetime "recorded_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_impacts_on_card_id"
   end
 
-  create_table "proposals", force: :cascade do |t|
-    t.string "title"
+  create_table "reviews", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "settings", force: :cascade do |t|
     t.string "current_cycle"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "updates", force: :cascade do |t|
-    t.string "comments"
-    t.string "uname"
-    t.datetime "updated_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
