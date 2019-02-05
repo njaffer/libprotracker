@@ -1,0 +1,2 @@
+class EndCycle < ApplicationRecord
+end

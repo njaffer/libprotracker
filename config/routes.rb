@@ -12,9 +12,14 @@ Rails.application.routes.draw do
   get 'cards/browse'
   post 'cards/import_cards'
   get 'cards/public_board'
+  get 'strategic_sorting/import_ss'
+  post 'strategic_sorting/import_ss_data'
+  get 'end_cycle/import'
+  post 'end_cycle/import_endcycle'
   get 'complexities/index'
   get 'impacts/index'
   get 'review/index'
+
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

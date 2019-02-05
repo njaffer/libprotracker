@@ -21,7 +21,16 @@ class CreateCards < ActiveRecord::Migration[5.2]
       t.string :more_info
       t.string :start_cycle
       t.string :end_cycle
-      t.datetime :card_since
+      t.string :card_status
+      t.string :ext_link
+      t.string :lit_lead
+      t.string :lit_dept    
+      t.string :service_lead
+      t.string :other_contacts
+      t.string :comments
+      
+      
+      #t.datetime :card_since
 
       t.datetime :recorded_on ,  default: -> { 'CURRENT_TIMESTAMP' }
       t.timestamps
