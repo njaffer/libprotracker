@@ -1,6 +1,6 @@
 <div class="container">
   <% no = 1 %>  
-  <h3 style="margin-top:70px;">In Progress (total number of cards)</h3>
+  <h3 style="margin-top:70px;">FY19:2 (Total: <%=Card.count%>)</h3>
   <% Card.all.each do |c| %>  
   <% collapseid = "collpase"+no.to_s 
      collapse = "#collpase"+no.to_s 
@@ -8,29 +8,45 @@
      commentid = "comment"+no.to_s
 
      no = no+1 
+     
+     ss = StrategicSorting.find(id=c.id)
+     ec = EndCycle.find(id=c.id)
+     
   %>
 
   <div class="panel-group">
-    <div class="panel panel-default">
+    <div class="panel panel-info">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" href="<%= collapse %>"><%= c.title %>(short name<%=c.short_name%>)</a>
+          <a data-toggle="collapse" href="<%= collapse %>"><%#= c.start_cycle %><%= c.title %>&nbsp;(<%=c.short_name%>)</a>
         </h4>
        </div>
-      <div id="<%= collapseid %>" class="panel-collapse collapse">
-        <div class="panel-body"><%=c.short_description %></div>
+      <div id="<%= collapseid %>" class="panel-collapse collapse in">
+        <div class="panel-body"><b>Description:</b> <%=c.short_description %><p> <b>LIT Contact</b><%=c.lit_lead%></p>
+          <p><b>Primary Stakeholder: </b><%= c.service_lead%></p>
+        </div>
+        <div class="panel-body"><b>Strategic Sorting:</b><br> <b>Domain:</b> <%=ss.domain %>| <b>Enthusiasm:</b> <%=ss.enthusiasm %> | <b>Knowledge:</b> <%=ss.knowledge%> | <b>Resources:</b> <%=ss.resource%> <p><b>Comments:</b> <%=ss.comments%> </div>
+        <div class="panel-body">
+          <b>End Cycle Review:</b><br> <b>Status:</b> <%=ec.status %>| <b>Rationale:</b> <%=ec.rationale %> | <b>Expected Duration:</b> <%=ec.expected_dur %>  <p><b>Notes:</b> <%=ec.notes%>
+
+        </div>
+        
+        <% if (false) %>
         <%# comments %>
-         <div class="panel panel-info class">
+        <div class="panel panel-info class">
          <div class="panel-heading">
           <h4 class="panel-title">
-          <a data-toggle="collapse" href="<%= comment %>">Comments (total number of comments)</a>
+          <a data-toggle="collapse" href="<%= comment %>">Comments (0 found)</a>
           </h4>
          </div>
          <div id="<%= commentid %>" class="panel-collapse collapse">
          <div class="panel-body">Comment 1: <%=c.short_description %></div>
          </div>
          </div>
-      <div class="panel-footer">Request Type: <%= c.request_type %> | Requester: <%= c.requester_name %> 
+         <% end %>
+         <%# comments %>
+
+      <div class="panel-footer"><b> Requester:</b> <%= c.requester_div%> | <b> Department:</b> <%=c.lit_dept %>   
       </div>
       </div>
     </div>

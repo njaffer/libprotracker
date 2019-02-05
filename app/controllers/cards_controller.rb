@@ -3,14 +3,21 @@ class CardsController < ApplicationController
 
 def public_board
 end
+
 def import_cards
   uploaded_csv = params[:file]
   csv_text = File.read(uploaded_csv.path)
   csv = CSV.parse(csv_text, :headers => true, :encoding => 'windows-1251:utf-8')
+  #csv = CSV.parse(csv_text, :headers => true, :encoding =>'iso-8859-1:utf-8')
+  
   csv.each do |row|
     
     row_hash = row.to_hash
-    if (row_hash["Status"]=="Survey Preview")
+
+  flag = false
+
+  if (flag)  
+    if (row_hash["Status"]== "Survey Preview")
     row_hash.delete "StartDate"
     row_hash.delete "EndDate"
     row_hash.delete "Status"
@@ -69,17 +76,21 @@ def import_cards
 
     row_hash.merge!(start_cycle: params[:cycle])
     
-  
+    end
+    end
+    
+    row_hash.merge!(start_cycle: params[:cycle])
+    #byebug
     c = Card.new (row_hash)
     c.save!
     id = c.id
-    complexity_hash = Hash["card_id" => id, "status" => "Not Recorded"]
-    Complexity.create!(complexity_hash) 
-    Impact.create!(complexity_hash) 
+    #complexity_hash = Hash["card_id" => id, "status" => "Not Recorded"]
+    #Complexity.create!(complexity_hash) 
+    #Impact.create!(complexity_hash) 
     comment_hash = Hash["card_id" => id, "comment_txt" => "New card created", "uemail" => "njaffer@umich.edu"] 
     Comment.create!(comment_hash)
     
-  end	
+  
 end
 end	
 
