@@ -1,7 +1,15 @@
 class EndCycleController < ApplicationController
 	protect_from_forgery with: :null_session
 
-  
+  def export
+ 
+  @cards =  EndCycle.all
+  respond_to do |format|
+    format.html
+    format.csv { send_data @cards.to_csv }
+  end
+   
+ end
   	
   def import_endcycle
     uploaded_csv = params[:file]

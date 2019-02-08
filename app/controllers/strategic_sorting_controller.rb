@@ -1,9 +1,15 @@
 class StrategicSortingController < ApplicationController
   protect_from_forgery with: :null_session
 
-  def import_ss
-
+  def export
+ 
+  @cards =  StrategicSorting.all
+  respond_to do |format|
+    format.html
+    format.csv { send_data @cards.to_csv }
   end
+   
+end
   	
   def import_ss_data
     uploaded_csv = params[:file]
