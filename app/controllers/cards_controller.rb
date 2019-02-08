@@ -4,6 +4,20 @@ class CardsController < ApplicationController
 def public_board
 end
 
+
+  
+def export
+ 
+  @cards =  Card.all
+  respond_to do |format|
+    format.html
+    format.csv { send_data @cards.to_csv }
+  end
+   
+end
+
+
+
 def import_cards
   uploaded_csv = params[:file]
   csv_text = File.read(uploaded_csv.path)

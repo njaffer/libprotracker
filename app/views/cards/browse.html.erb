@@ -1,6 +1,8 @@
 <div class="container">
   <% no = 1 %>  
   <h3 style="margin-top:70px;">FY19:2 (Total: <%=Card.count%>)</h3>
+  <p><a href="/cards/export.csv">Export to Excel</a></p>
+
   <% Card.all.each do |c| %>  
   <% collapseid = "collpase"+no.to_s 
      collapse = "#collpase"+no.to_s 
@@ -10,10 +12,12 @@
      no = no+1 
      
      ss = StrategicSorting.find(id=c.id)
-     ec = EndCycle.find(id=c.id)
+      ec = EndCycle.find(id=c.id)
+
+
      
   %>
-
+ <p style="page-break-before: always;">&nbsp;</p>
   <div class="panel-group">
     <div class="panel panel-info">
       <div class="panel-heading">
@@ -22,12 +26,17 @@
         </h4>
        </div>
       <div id="<%= collapseid %>" class="panel-collapse collapse in">
-        <div class="panel-body"><b>Description:</b> <%=c.short_description %><p> <b>LIT Contact</b><%=c.lit_lead%></p>
+        <div class="panel-body"><b>Description:</b> <%=c.short_description %><p> <b>LIT Contact: </b><%=c.lit_lead%></p>
           <p><b>Primary Stakeholder: </b><%= c.service_lead%></p>
         </div>
         <div class="panel-body"><b>Strategic Sorting:</b><br> <b>Domain:</b> <%=ss.domain %>| <b>Enthusiasm:</b> <%=ss.enthusiasm %> | <b>Knowledge:</b> <%=ss.knowledge%> | <b>Resources:</b> <%=ss.resource%> <p><b>Comments:</b> <%=ss.comments%> </div>
         <div class="panel-body">
-          <b>End Cycle Review:</b><br> <b>Status:</b> <%=ec.status %>| <b>Rationale:</b> <%=ec.rationale %> | <b>Expected Duration:</b> <%=ec.expected_dur %>  <p><b>Notes:</b> <%=ec.notes%>
+          <b>End Cycle Review:</b><br> <b>Status:</b> <%=ec.status %>| <b>Rationale:</b>
+          <% if (ec.rationale=="Lack of Resources") %>
+           <font color="red"> <%=ec.rationale %> </font>
+          <% else %>  
+            <%=ec.rationale %>
+          <%end%>   | <b>Expected Duration:</b> <%=ec.expected_dur %>  <p><b>Notes:</b> <%=ec.notes%>
 
         </div>
         

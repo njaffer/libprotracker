@@ -67,3 +67,4 @@ gem 'font-awesome-rails'
 gem 'rails_bootstrap_navbar'
 gem 'chart-js-rails'
 gem 'roo'
+
